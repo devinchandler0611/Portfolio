@@ -1,135 +1,292 @@
+<div>&nbsp;</div>
+<style>* { box-sizing: border-box; }
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ren — Creative Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIS Portfolio Template</title>
   <style>
-    * { box-sizing: border-box; }
+    :root {
+      --bg: #f5f7f9;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #52606d;
+      --accent: #1f6f8b;
+      --accent-light: #d9eef4;
+      --border: #d9e2ec;
+    }
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      background: #f4f1e9;
-      color: #30372d;
-      font: 16px/1.7 Georgia, serif;
-    }
-    a { color: inherit; text-underline-offset: 6px; }
-    header, main, footer {
-      max-width: 1000px;
-      margin: auto;
-      padding: 28px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
     header {
+      background: linear-gradient(135deg, #174a5a, #1f6f8b);
+      color: white;
+      padding: 3rem 1.5rem;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    nav {
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 2.4rem;
+    }
+    .hero p {
+      max-width: 700px;
+      margin-top: 0.75rem;
+      font-size: 1.05rem;
+    }
+    .buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .button {
+      background: white;
+      color: var(--accent);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      padding: 2rem 1.5rem 4rem;
+    }
+    section {
+      margin-top: 2rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    }
+    h2 {
+      margin-top: 0;
+      color: #12343f;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .skills-list, .project-meta {
+      padding-left: 1.2rem;
+    }
+    .project-image {
+      width: 100%;
+      height: 220px;
+      border-radius: 10px;
+      background: var(--accent-light);
+      border: 1px dashed var(--accent);
+      display: flex;
       align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-align: center;
+      padding: 1rem;
     }
-    .logo { font-size: 24px; text-decoration: none; }
-    nav { display: flex; gap: 24px; font: 14px sans-serif; }
-    nav a { text-decoration: none; }
-    .hero { padding: 80px 0; position: relative; }
-    .circle {
-      width: 150px;
-      height: 150px;
-      border: 12px solid #a34c3e;
-      border-right-color: transparent;
-      border-radius: 50%;
-      transform: rotate(-25deg);
-      opacity: .8;
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
     }
-    .eyebrow {
-      margin-top: 32px;
-      font: 12px sans-serif;
-      letter-spacing: 3px;
-      text-transform: uppercase;
+    .tag {
+      background: var(--accent-light);
+      color: #184b5a;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
     }
-    h1 {
-      max-width: 650px;
-      margin: 16px 0;
-      font-size: clamp(42px, 8vw, 76px);
-      font-weight: normal;
-      line-height: 1.1;
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 2rem 1rem 3rem;
     }
-    .intro { max-width: 440px; color: #666c60; }
-    h2 { font-size: 24px; font-weight: normal; }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-    article { border-top: 1px solid #bfc3b6; padding-top: 20px; }
-    .art {
-      height: 190px;
-      display: grid;
-      place-items: center;
-      background: #e1e4d8;
-    }
-    .stone {
-      width: 100px;
-      height: 65px;
-      background: #7d8573;
-      border-radius: 55% 45% 40% 60%;
-      box-shadow: 0 14px 20px #30372d18;
-    }
-    .sand {
-      background: repeating-radial-gradient(
-        ellipse at center, #e8dfcf 0 9px, #d9cdb8 10px 11px
-      );
-    }
-    article h3 { margin-bottom: 0; font-weight: normal; }
-    article p { margin-top: 4px; color: #666c60; }
-    #contact { padding: 65px 0 30px; }
-    footer { border-top: 1px solid #d5d7cc; font-size: 13px; }
-    a:focus-visible { outline: 2px solid #a34c3e; outline-offset: 6px; }
-    @media (max-width: 550px) {
-      .projects { grid-template-columns: 1fr; }
-      .hero { padding: 45px 0; }
-      nav { gap: 16px; }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <a class="logo" href="#" aria-label="Ren home">ren.</a>
-    <nav aria-label="Main navigation">
-      <a href="#work">Work</a>
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }</style>
+<header>
+  <div class="container hero">
+    <h1>Devin Chandler
+      <br>
+      <span style="font-size: 1.05rem; font-weight: normal;">GIS Portfolio | Spatial Analysis | Cartography | Remote Sensing</span>
+    </h1>
+    <p>I'm currently studying geospatial science and technology at Cal Poly Humboldt with interests in geography, remote sensing, land surveying, cartography, and spatial analysis. I hope to use this education to better the planet and spread geospatial awareness.&nbsp;</p>
+    <div class="buttons">
+      <span style="color: #333333;">
+        <a class="button" href="#projects" style="color: #333333;">View Projects</a>
+      </span>
+      <span style="color: #000000;">
+        <a class="button" href="#skills" style="color: #000000;">Skills</a> 
+        <a class="button" href="#contact" style="color: #000000;">Contact</a>
+      </span>
+    </div>
+    <nav>
+      <a href="#about">About</a> 
+      <a href="#skills">Skills</a> 
+      <a href="#projects">Projects</a> 
+      <a href="#resume">Resume</a> 
       <a href="#contact">Contact</a>
     </nav>
-  </header>
-
-  <main>
-    <section class="hero" aria-labelledby="intro">
-      <div class="circle" aria-hidden="true"></div>
-      <p class="eyebrow">Designer · Maker · Observer</p>
-      <h1 id="intro">Space for<br>what matters.</h1>
-      <p class="intro">
-        I’m Ren, a designer finding beauty in simplicity,
-        natural forms, and thoughtful everyday experiences.
-      </p>
-      <a href="#work">Explore selected work ↗</a>
-    </section>
-
-    <section id="work" aria-labelledby="work-title">
-      <h2 id="work-title">Selected work</h2>
-      <div class="projects">
-        <article>
-          <div class="art" aria-hidden="true"><div class="stone"></div></div>
-          <h3>Still Form</h3>
-          <p>Brand identity / 2026</p>
-        </article>
-        <article>
-          <div class="art sand" aria-hidden="true"></div>
-          <h3>Quiet Patterns</h3>
-          <p>Digital experience / 2026</p>
-        </article>
+  </div>
+</header>
+<main class="container">
+  <section id="about">
+    <div class="card">
+      <h2>About Me</h2>
+      <p>I am interested in environmental GIS, web mapping, and spatial storytelling. My work combines technical analysis with clear visual communication. This portfolio highlights projects that show how I collect, manage, analyze, and present geographic information for real-world applications.</p>
+    </div>
+  </section>
+  <section id="skills">
+    <div class="grid">
+      <div class="card">
+        <h2>Technical Skills</h2>
+        <ul class="skills-list">
+          <li>Spatial analysis</li>
+          <li>Cartographic design</li>
+          <li>Raster and vector workflows</li>
+          <li>Georeferencing and data cleaning</li>
+          <li>Remote sensing basics</li>
+          <li>Field data collection</li>
+        </ul>
       </div>
-    </section>
-
-    <section id="contact">
-      <h2>Let’s create something thoughtful.</h2>
-      <a href="mailto:hello@example.com">hello@example.com ↗</a>
-    </section>
-  </main>
-
-  <footer>© 2026 Ren · Made with intention.</footer>
-</body>
-</html>
+      <div class="card">
+        <h2>Tools</h2>
+        <ul class="skills-list">
+          <li>ArcGIS Pro</li>
+          <li>ArcGIS Online</li>
+          <li>StoryMaps</li>
+          <li>Excel</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Career Focus</h2>
+        <p>Interested in GIS technician, geospatial analyst, planning support, conservation mapping, and environmental data visualization roles.</p>
+        <div class="tag-group">
+          <span class="tag">GIS Technician</span> 
+          <span class="tag">Cartography</span> 
+          <span class="tag">Remote Sensing</span> 
+          <span class="tag">Web Maps</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="projects">
+    <h2>Featured Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="project-image">
+          <br>
+          <img src="https://share1.cloudhq-mkt3.net/6e58f24460eacf.png" alt="" width="243" height="243">
+        </div>
+        <h3>GPS Waypoint Finding&nbsp;
+          <strong style="font-size: small;">Goal:</strong>
+          <span style="font-size: small; font-weight: normal;">
+            <br>This project challenged the accuracy of waypoints collected through GaiaGPS. Waypoints were collected throughout Cal Poly campus and projected to ArcGIS, then verified through a visual layer.
+          </span>
+          <br>
+        </h3>
+        <ul class="project-meta">
+          <li>
+            <strong>Tools:</strong> ArcGIS Pro, GaiaGPS
+          </li>
+          <li>
+            <strong>Skills:</strong> Waypoint collection, visualization, interpretation
+          </li>
+        </ul>
+        <p>
+          <strong>Employment relevance:</strong> Demonstrates efficiency in ArcGIS and comparing relative data.
+        </p>
+      </div>
+      <div class="card">
+        <div class="project-image">
+          <img style="font-weight: 400; text-align: start;" src="https://share1.cloudhq-mkt3.net/3fd801190f3d20.png" alt="" width="267" height="210">
+        </div>
+        <h3>Comparing Data Collection
+          <span style="font-weight: 400;">
+            <br>
+            <span style="font-size: 10pt;">Earthquake data was projected into four different intervals through ArcGIS including quantile, defined interval, equal interval, and natural breaks. The outcomes were compared and contrasted.&nbsp;</span>
+          </span>
+          <br>
+        </h3>
+        <ul class="project-meta">
+          <li>
+            <strong>Tools:</strong>ArcGIS Pro
+          </li>
+          <li>
+            <strong>Skills:</strong> Web GIS, spatial thinking
+          </li>
+        </ul>
+        <p>
+          <strong>Employment relevance:</strong> Shows ability to project and display information.
+        </p>
+      </div>
+      <div class="card">
+        <div class="project-image">
+          <img style="font-weight: normal;" src="https://share1.cloudhq-mkt3.net/5b8c2bfc6a558f.png" alt="" width="262" height="147">
+          <br>
+        </div>
+        <h3>Workflow Flowchart
+          <br>
+          <span style="font-size: small;">
+            <span style="font-weight: 400;">Flowchart demonstrates proficiency and organization throughout projects.</span>
+          </span>
+        </h3>
+        <ul class="project-meta">
+          <li>
+            <strong>Goal:</strong> Understand and show steps throughout work
+          </li>
+          <li>
+            <strong>Tools:</strong> Microsoft powerpoint
+          </li>
+        </ul>
+        <p>
+          <strong>Employment relevance:</strong> Demonstrates organization and understanding of multi step processes.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section id="resume">
+    <div class="card">
+      <h2>Resume</h2>
+      <p>
+        <img src="https://share1.cloudhq-mkt3.net/eaf7eb7034f382.pdf" alt="">
+        <a href="https://docs.google.com/document/d/1AYL_azHDei6YxL4U4bBdaO9CfEc-bs-w/edit?usp=drive_link&amp;ouid=109859265524490685445&amp;rtpof=true&amp;sd=true">https://docs.google.com/document/d/1AYL_azHDei6YxL4U4bBdaO9CfEc-bs-w/edit?usp=drive_link&amp;ouid=109859265524490685445&amp;rtpof=true&amp;sd=true</a>&nbsp;
+      </p>
+    </div>
+  </section>
+  <section id="contact">
+    <div class="card">
+      <h2>Contact</h2>
+      <p>Email: devinchandler0611@gmail.com</p>
+    </div>
+  </section>
+</main>
+<footer>GIS Portfolio Template for student adaptation on GitHub Pages or other portfolio platforms.</footer>
